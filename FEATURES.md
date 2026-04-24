@@ -28,7 +28,24 @@
 - **Skill XP Display** — Hold Shift to view XP remaining to max.
 - **SkyBlock XP in Chat** — Sends XP gains to chat *(server dependent)*.
 ## Scoreboard
+<<<<<<< Updated upstream
 - **Custom Scoreboard** — Fully configurable scoreboard replacement.
+=======
+
+- **Custom Scoreboard** — Replaces the vanilla sidebar with a custom one. Lines, order, colors, and scale are configurable.
+
+## Cosmetics
+
+- **Capes** — Visible to any player using JEF. Manage capes in `/capes`
+
+
+## Storage
+
+- **Storage Overlay** — Renders a Custom Storage Overlay which allows for managing inventories with ease.
+- **Jump-To-Active** — Automatically center the active storage container in overlay.
+- **Multiple themes** — Storage overlay has themes "Default", "Dark", "Wooden", "Ender", "Parchment" to select from.
+
+>>>>>>> Stashed changes
 ## Waypoints
 - **Auto Advance** — Moves to next waypoint automatically.
 - **JEF Ordered Waypoints** — `/jw guide`
@@ -61,9 +78,19 @@
 + `/diana <reset|toggle>` — Diana tracker controls.
 + `/pdt <reset|toggle>` (`/powdertracker`) — Powder tracker controls.
 + `/lockmouse` — Toggles mouse lock.
+<<<<<<< Updated upstream
 + `/jw guide` — Waypoint commands.
 + `/waypoint` — Opens waypoint manager.
 + `/jefbuttons` — Opens inventory button editor.
+=======
++ `/jw guide` — All the commands for JEF ordered waypoints.
++ `/waypoint` — Opens the waypoint group manager.
++ `/jefbuttons` — Opens the inventory button editor.
++ `/capes` — Opens the JEF capes manager.
+
+
+
+>>>>>>> Stashed changes
 ## Party Commands
 + `!help` — Diana help.
 + `!pb` — View dungeon personal bests. Usages: `f1–m7`, `br`, `p1–p5`

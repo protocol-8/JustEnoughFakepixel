@@ -1,26 +1,20 @@
 
 # JEF 1.2.4 - 1.2.5 Changelog
 
-- Added Item Cooldowns overlay (abilities, invincibility timers)
-- Added CS2 case opening animation
-- Added Daily Grind, Powder & Core of the mountain to HOTM Powder Display
-----------------
-- Added timer repo with dynamic reload of timers
-- Added /jef reload debug command and debug button to reload repo data
-- Added drawHoveringText in TextRenderUtils
-- Added debug logger for easier debugging
-- Cleaned and organized most of the code
+
+- Added Storage Overlay
+- Added Mode-Wide capes (/Capes)
+- Added Player tags
+- Added Professor and Scarf splits
+--------------
+- Changed Hardstone in Powder tracker to Enchanted
+- Improved Dungeon Overlay to have less dupe timers (toggleable)
+- Added more Custom Scoreboard lines
 -------------
-- Fixed scoreboard header being hardcoded
-- Fixed item log mechanics
-- Fixed Powder Tracker Gemstone Powder not being accurate
-- Fixed Hard Stone in Powder Tracker
-- Noticeable increase in performance 
+- Fixed background and null texture in CS2 case animation
+- Fixed player messages getting tracked by Diana Trackers
 
 
 
 
 The full changelog can be found [here](https://github.com/JustEnoughFakepixel/JustEnoughFakepixel/commits/main/)
-
-
-
