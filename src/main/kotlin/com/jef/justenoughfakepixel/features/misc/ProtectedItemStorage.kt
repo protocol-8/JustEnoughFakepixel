@@ -5,10 +5,7 @@ import com.google.gson.reflect.TypeToken
 import net.minecraft.client.Minecraft
 import java.io.File
 
-/**
- * Persists protected item UUIDs to disk.
- * Items are identified by their SkyBlock ExtraAttributes UUID string.
- */
+
 object ProtectedItemStorage {
 
     private val gson = Gson()
@@ -43,7 +40,13 @@ object ProtectedItemStorage {
         }
     }
 
-    fun add(uuid: String) { protectedUuids.add(uuid); save() }
-    fun remove(uuid: String) { protectedUuids.remove(uuid); save() }
+    fun add(uuid: String) {
+        protectedUuids.add(uuid); save()
+    }
+
+    fun remove(uuid: String) {
+        protectedUuids.remove(uuid); save()
+    }
+
     fun contains(uuid: String) = protectedUuids.contains(uuid)
 }
