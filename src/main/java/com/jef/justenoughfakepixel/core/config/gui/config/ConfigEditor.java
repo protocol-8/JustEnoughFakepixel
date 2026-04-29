@@ -12,6 +12,7 @@ import com.jef.justenoughfakepixel.core.config.utils.LerpUtils.LerpingInteger;
 import com.jef.justenoughfakepixel.core.config.utils.RenderUtils;
 import com.jef.justenoughfakepixel.core.config.utils.StringUtils;
 import com.jef.justenoughfakepixel.core.config.utils.TextRenderUtils;
+import com.jef.justenoughfakepixel.JefMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -265,8 +266,7 @@ public class ConfigEditor extends GuiElement {
         RenderUtils.drawFloatingRectDark(x + 5, y + 5, xSize - 10, 20, false);
 
         FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
-        TextRenderUtils.drawStringCenteredScaledMaxWidth("JustEnoughFakepixel" + EnumChatFormatting.RESET + ", config by " + EnumChatFormatting.DARK_PURPLE + "Moulberry", fr, x + xSize / 2f, y + 15, false, 200, 0xa0a0a0);
-        RenderUtils.drawFloatingRectDark(x + 4, y + 49 - 20, 180, ySize - 54 + 20, false);
+        TextRenderUtils.drawStringCenteredScaledMaxWidth("JustEnoughFakepixel" + " " + JefMod.VERSION + " by " + EnumChatFormatting.RED + "h4mlock" + EnumChatFormatting.RESET + ", config by " + EnumChatFormatting.DARK_PURPLE + "Moulberry", fr, x + xSize / 2f, y + 15, false, 380, 0xa0a0a0);        RenderUtils.drawFloatingRectDark(x + 4, y + 49 - 20, 180, ySize - 54 + 20, false);
 
         int innerPadding = 20 / adjScaleFactor;
         int innerLeft = x + 4 + innerPadding;
