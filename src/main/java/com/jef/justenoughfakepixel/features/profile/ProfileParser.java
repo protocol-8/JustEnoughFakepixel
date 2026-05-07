@@ -285,21 +285,15 @@ public class ProfileParser {
                                     windowID = prof2.windowId;
                                     mc.playerController.windowClick(windowID,25,0,0,mc.thePlayer);
                                     EnumMap<CollectionType, CollectionData> data = new EnumMap<>(CollectionType.class);
-                                    GuiWaiter.waitFor("View Farming Collections",2,2,"View Mining Collections",farming -> {
-                                        data.putAll(parseCollection(CollectionBase.FARMING,farming));
-                                    },mining -> {
+                                    GuiWaiter.waitFor("View Farming Collections",2,2,"View Mining Collections",farming -> data.putAll(parseCollection(CollectionBase.FARMING,farming)), mining -> {
                                         windowID = mining.windowId;
                                         data.putAll(parseCollection(CollectionBase.MINING,mining));
                                         mc.playerController.windowClick(windowID,3,0,0,mc.thePlayer);
-                                        GuiWaiter.waitFor("View Combat Collections",2,4,"View Foraging Collections", combat -> {
-                                            data.putAll(parseCollection(CollectionBase.COMBAT,combat));
-                                        },foraging -> {
+                                        GuiWaiter.waitFor("View Combat Collections",2,4,"View Foraging Collections", combat -> data.putAll(parseCollection(CollectionBase.COMBAT,combat)), foraging -> {
                                             windowID = foraging.windowId;
                                             data.putAll(parseCollection(CollectionBase.FORAGING,foraging));
                                             mc.playerController.windowClick(windowID,5,0,0,mc.thePlayer);
-                                            GuiWaiter.waitFor("View Fishing Collections",2,6,"View Boss Collections",fishing -> {
-                                                data.putAll(parseCollection(CollectionBase.FISHING,fishing));
-                                            },boss -> {
+                                            GuiWaiter.waitFor("View Fishing Collections",2,6,"View Boss Collections",fishing -> data.putAll(parseCollection(CollectionBase.FISHING,fishing)), boss -> {
                                                 windowID = boss.windowId;
                                                 data.putAll(parseCollection(CollectionBase.BOSS,boss));
                                                 collectionData[0] = new CollectionsData(data);
@@ -358,16 +352,17 @@ public class ProfileParser {
             if (words.length < 1) continue;
 
             String lastWord = words[words.length - 1];
-            int level = 0;
+            int level;
             String baseName = name;
 
+            String levelString = name.substring(0, name.lastIndexOf(lastWord));
             try {
                 level = RomanNumeralParser.parse(lastWord);
-                baseName = name.substring(0, name.lastIndexOf(lastWord)).trim();
+                baseName = levelString.trim();
             } catch (IllegalArgumentException e) {
                 try {
                     level = Integer.parseInt(lastWord);
-                    baseName = name.substring(0, name.lastIndexOf(lastWord)).trim();
+                    baseName = levelString.trim();
                 } catch (NumberFormatException ex) {
                     level = 0;
                 }
@@ -802,7 +797,9 @@ public class ProfileParser {
                 }
             }
         }catch (NumberFormatException ignored){}
-        if(bossKills < 0) return null;
+        if(bossKills < 0){
+            return new FloorData(Floor.FLOOR_SEVEN,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        }
         return new FloorData(floor,bossKills,fastestTime,fastestSTime,fastestSPlusTime,bestScore,mHDamage,mMDamage,mADamage,mBDamage,mTDamage,mLDamage,totalEnemiesKilled,mostEnemiesKilled);
     }
     public static HOTMData parseHOTM(ContainerChest container) {
@@ -1174,6 +1171,7 @@ public class ProfileParser {
         }
         try(FileWriter writer = new FileWriter(file1)){
             writer.write(GSON.toJson(data));
-        }catch (IOException e) { JefMod.logger.info("Error writing to profile.json"); return; }
+        }catch (IOException e) { JefMod.logger.info("Error writing to profile.json");
+        }
     }
 }
