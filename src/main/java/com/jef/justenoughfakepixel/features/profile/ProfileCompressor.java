@@ -7,9 +7,11 @@ import java.util.zip.GZIPOutputStream;
 public class ProfileCompressor {
 
     public static byte[] compressJSON(String jsonString) throws Exception {
+        WaiterLogs.addLog("[ProfileCompressor] Compressing JSON...");
         ByteArrayOutputStream obj = new ByteArrayOutputStream();
         GZIPOutputStream gzip = new GZIPOutputStream(obj);
         gzip.write(jsonString.getBytes(StandardCharsets.UTF_8));
+        WaiterLogs.addLog("[ProfileCompressor] Compressed JSON ");
         gzip.close();
         return obj.toByteArray();
     }

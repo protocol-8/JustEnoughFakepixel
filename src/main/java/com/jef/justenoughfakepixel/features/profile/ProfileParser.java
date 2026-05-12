@@ -74,8 +74,8 @@ public class ProfileParser {
                 dungeonData[0], slayerData[0],wardrobeData[0],petsData[0],storageData[0],
                 bagsData[0],collectionData[0]);
         profileData.put(base.playerName, profile);
-        writeToJson(profile);
         SupabaseHandler.pushProfileAsync(base.playerName, profile);
+        writeToJson(profile);
         parsing = false;
         JefMod.logger.info("[ProfileParser] Saved profile: " + base.playerName);
         WaiterLogs.addLog("[ProfileParser] Saved profile: " + base.playerName);
