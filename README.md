@@ -14,10 +14,10 @@
 </div>
 
 # Features
-- A full feature list can be found [here](https://github.com/JustEnoughFakepixel/JustEnoughFakepixel/blob/main/docs/FEATURES.md)
+- A full feature list can be found [here](docs/FEATURES.md)
 
 # How do I contribute ?
-- A full comprehensive guide for contribution and compiling the mod yourself can be found [here](https://github.com/JustEnoughFakepixel/JustEnoughFakepixel/blob/main/docs/CONTRIBUTING.md)
+- A full comprehensive guide for contribution and compiling the mod yourself can be found [here](docs/CONTRIBUTING.md)
 
 # 📋 IMPORTANT
 On server join, this mod sends only two things to our servers:
