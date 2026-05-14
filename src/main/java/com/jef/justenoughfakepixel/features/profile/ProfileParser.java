@@ -358,7 +358,6 @@ public class ProfileParser {
                 container.getLowerChestInventory().getDisplayName().getUnformattedText()
         ).trim();
 
-        // FIX 1: Logical OR (||) instead of AND (&&) to correctly reject bad menus
         if (!title.startsWith("View") || !title.endsWith("Collections")) return data;
 
         for(int i = 19; i < 44; i++){
@@ -392,7 +391,7 @@ public class ProfileParser {
 
             long curExp = -1, reqExp = -1;
             List<String> lore = getLore(stack);
-
+            boolean coop = false;
             for(String s : lore){
                 if (s.contains("/") && !s.contains(" ")) {
                     try {
@@ -400,6 +399,18 @@ public class ProfileParser {
                         curExp = parseRawNumber(parts[0]);
                         reqExp = parseRawNumber(parts[1]);
                     } catch (Exception ignored) {}
+                }
+                if(s.contains(base.playerName)){
+                    try{
+                        String[] parts = s.split(":");
+                        curExp = parseRawNumber(parts[1].replaceAll("[^0-9]",""));
+                    }catch (Exception ignored) {}
+                }
+                if(s.startsWith("Contributions:")){
+                    try{
+                        String[] parts = s.split(":");
+                        curExp = parseRawNumber(parts[1].replaceAll("[^0-9]",""));
+                    }catch (Exception ignored) {}
                 }
             }
             data.put(type, new CollectionData(level, curExp, reqExp));
